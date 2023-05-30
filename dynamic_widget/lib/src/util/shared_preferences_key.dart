@@ -4,22 +4,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class SharedPreferencesKey {
   String get key;
+}
 
+extension SharedPreferencesKeyExtension on SharedPreferencesKey {
   Future<bool> set(dynamic value) async => switch (value) {
-    int() =>
-    await (await SharedPreferences.getInstance()).setInt(key, value),
-    double() =>
-    await (await SharedPreferences.getInstance()).setDouble(key, value),
-    String() =>
-    await (await SharedPreferences.getInstance()).setString(key, value),
-    bool() =>
-    await (await SharedPreferences.getInstance()).setBool(key, value),
-    Map() => await (await SharedPreferences.getInstance())
-        .setString(key, json.encode(value)),
-    List<String>() => await (await SharedPreferences.getInstance())
-        .setStringList(key, value),
-    _ => false
-  };
+        int() =>
+          await (await SharedPreferences.getInstance()).setInt(key, value),
+        double() =>
+          await (await SharedPreferences.getInstance()).setDouble(key, value),
+        String() =>
+          await (await SharedPreferences.getInstance()).setString(key, value),
+        bool() =>
+          await (await SharedPreferences.getInstance()).setBool(key, value),
+        Map() => await (await SharedPreferences.getInstance())
+            .setString(key, json.encode(value)),
+        List<String>() => await (await SharedPreferences.getInstance())
+            .setStringList(key, value),
+        _ => false
+      };
 
   Future<T> getOrDefault<T>(T value) async {
     return (await get<T>()) ?? value;
