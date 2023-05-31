@@ -1,8 +1,7 @@
 import 'package:flutter/painting.dart';
 
 extension TextStyleByColor on Color {
-  TextStyle w100({
-    double? fontSize,
+  TextStyle w100(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -21,8 +20,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w200({
-    double? fontSize,
+  TextStyle w200(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -41,8 +39,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w300({
-    double? fontSize,
+  TextStyle w300(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -61,8 +58,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w400({
-    double? fontSize,
+  TextStyle w400(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -81,8 +77,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w500({
-    double? fontSize,
+  TextStyle w500(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -101,8 +96,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w600({
-    double? fontSize,
+  TextStyle w600(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -121,8 +115,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w700({
-    double? fontSize,
+  TextStyle w700(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -141,8 +134,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w800({
-    double? fontSize,
+  TextStyle w800(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -161,8 +153,7 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w900({
-    double? fontSize,
+  TextStyle w900(double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
