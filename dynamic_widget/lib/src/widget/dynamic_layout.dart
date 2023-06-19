@@ -223,6 +223,9 @@ class DynamicLayoutStyle extends ThemeExtension<DynamicLayoutStyle> {
   }
 }
 
+typedef DynamicLayoutWidgetBuilder = Widget Function(
+    BuildContext context, DynamicLayoutData dynamicLayout);
+
 class DynamicLayout extends StatelessWidget {
   static DynamicLayoutData of(BuildContext context) {
     final widget = context.getInheritedWidgetOfExactType<_DynamicLayout>();
@@ -257,7 +260,7 @@ class DynamicLayout extends StatelessWidget {
   final double? tabletMaxPadding;
   final double? desktopMinPadding;
   final double? desktopMaxPadding;
-  final Widget child;
+  final DynamicLayoutWidgetBuilder builder;
 
   const DynamicLayout({
     super.key,
@@ -274,7 +277,7 @@ class DynamicLayout extends StatelessWidget {
     this.tabletMaxPadding,
     this.desktopMinPadding,
     this.desktopMaxPadding,
-    required this.child,
+    required this.builder,
   });
 
   @override
@@ -301,7 +304,9 @@ class DynamicLayout extends StatelessWidget {
         data: (style as DynamicLayoutStyle).getDynamicLayoutData(
             layout: Size(constraints.maxWidth, constraints.maxHeight),
             shownKeyboard: shownKeyboard),
-        child: child,
+        child: Builder(builder: (context) {
+          return builder(context, DynamicLayout.of(context));
+        }),
       );
     });
   }
