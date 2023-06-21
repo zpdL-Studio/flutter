@@ -8,6 +8,7 @@ export 'package:dynamic_widget/src/extension/map.dart';
 
 export 'package:dynamic_widget/src/style/text_style.dart';
 
+export 'package:dynamic_widget/src/util/dynamic_layout_scale_util.dart';
 export 'package:dynamic_widget/src/util/shared_preferences_key.dart';
 
 export 'package:dynamic_widget/src/widget/dynamic_layout.dart';
