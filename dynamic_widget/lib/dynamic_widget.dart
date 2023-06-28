@@ -9,7 +9,9 @@ export 'package:dynamic_widget/src/extension/map.dart';
 export 'package:dynamic_widget/src/style/dynamic_system_ui_overlay_style.dart';
 export 'package:dynamic_widget/src/style/text_style.dart';
 
+export 'package:dynamic_widget/src/util/dynamic_day.dart';
 export 'package:dynamic_widget/src/util/dynamic_layout_scale_util.dart';
+export 'package:dynamic_widget/src/util/nullable_value.dart';
 
 export 'package:dynamic_widget/src/dialog/dynamic_alert_dialog.dart';
 export 'package:dynamic_widget/src/dialog/dynamic_bottom_sheet.dart';
