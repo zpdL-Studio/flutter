@@ -12,6 +12,7 @@ enum DynamicButtonStyle {
   tertiaryContainer,
   error,
   errorContainer,
+  outline,
 }
 
 class DynamicButton extends StatelessWidget {
@@ -137,6 +138,9 @@ extension DynamicButtonStyleByTheme on ThemeData {
         DynamicButtonStyle.errorContainer => OutlinedButton.styleFrom(
             foregroundColor: colorScheme.errorContainer,
             side: BorderSide(color: colorScheme.errorContainer)),
+        DynamicButtonStyle.outline => OutlinedButton.styleFrom(
+            foregroundColor: colorScheme.outline,
+            side: BorderSide(color: colorScheme.outline)),
       };
 
   ButtonStyle getDynamicElevatedButtonStyle(DynamicButtonStyle style) =>
@@ -168,5 +172,8 @@ extension DynamicButtonStyleByTheme on ThemeData {
         DynamicButtonStyle.errorContainer => ElevatedButton.styleFrom(
             foregroundColor: colorScheme.onErrorContainer,
             backgroundColor: colorScheme.errorContainer),
+        DynamicButtonStyle.outline => ElevatedButton.styleFrom(
+            foregroundColor: hintColor,
+            backgroundColor: colorScheme.outline),
       };
 }
