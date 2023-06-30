@@ -236,7 +236,7 @@ extension DynamicTextTextStyleByColor on Color {
   }
 }
 
-extension TDynamicTextTextStyleByTheme on ThemeData {
+extension DynamicTextTextStyleByTheme on ThemeData {
   Color get textColor => colorScheme.onSurface;
 
   Color get primaryTextColor => colorScheme.onPrimary;
