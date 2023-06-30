@@ -1,6 +1,6 @@
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 
-extension TextStyleByColor on Color {
+extension DynamicTextTextStyleByColor on Color {
   TextStyle w100(
     double fontSize, {
     FontStyle? fontStyle,
@@ -189,11 +189,27 @@ extension TextStyleByColor on Color {
     TextDecorationStyle? decorationStyle,
     double? decorationThickness,
   }) {
-    return TextStyle(
-      fontSize: fontSize,
+    return w400(
+      fontSize,
       fontStyle: fontStyle,
-      fontWeight: FontWeight.normal,
-      color: this,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationStyle: decorationStyle,
+      decorationThickness: decorationThickness,
+    );
+  }
+
+  TextStyle semiBold(
+      double fontSize, {
+        FontStyle? fontStyle,
+        TextDecoration? decoration,
+        Color? decorationColor,
+        TextDecorationStyle? decorationStyle,
+        double? decorationThickness,
+      }) {
+    return w600(
+      fontSize,
+      fontStyle: fontStyle,
       decoration: decoration,
       decorationColor: decorationColor,
       decorationStyle: decorationStyle,
@@ -209,15 +225,25 @@ extension TextStyleByColor on Color {
     TextDecorationStyle? decorationStyle,
     double? decorationThickness,
   }) {
-    return TextStyle(
-      fontSize: fontSize,
+    return w700(
+      fontSize,
       fontStyle: fontStyle,
-      fontWeight: FontWeight.bold,
-      color: this,
       decoration: decoration,
       decorationColor: decorationColor,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
     );
   }
+}
+
+extension TDynamicTextTextStyleByTheme on ThemeData {
+  Color get textColor => colorScheme.onSurface;
+
+  Color get primaryTextColor => colorScheme.onPrimary;
+
+  Color get secondTextColor => colorScheme.onSecondary;
+
+  Color get tertiaryTextColor => colorScheme.onTertiary;
+
+  Color get errorTextColor => colorScheme.onError;
 }
