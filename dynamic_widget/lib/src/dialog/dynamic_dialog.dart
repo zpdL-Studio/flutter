@@ -61,7 +61,7 @@ Future<dynamic> showDynamicSimpleDialog({
   required BuildContext context,
   bool isDismissible = true,
   String? title,
-  String? body,
+  String? content,
   List<(dynamic, String, ButtonStyle?)>? actions,
 }) {
   return showDynamicDialog(
@@ -74,11 +74,11 @@ Future<dynamic> showDynamicSimpleDialog({
                 child: Text(title),
               )
           : null,
-      content: (context, dynamicLayout) => body != null
+      content: (context, dynamicLayout) => content != null
           ? Container(
               padding: EdgeInsetsDynamic(
                   vertical: 16, horizontal: dynamicLayout?.padding),
-              child: Text(body),
+              child: Text(content),
             )
           : const SizedBox(
               height: 32,
