@@ -1,7 +1,8 @@
 import 'package:flutter/painting.dart';
 
 extension TextStyleByColor on Color {
-  TextStyle w100(double fontSize, {
+  TextStyle w100(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -20,7 +21,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w200(double fontSize, {
+  TextStyle w200(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -39,7 +41,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w300(double fontSize, {
+  TextStyle w300(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -58,7 +61,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w400(double fontSize, {
+  TextStyle w400(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -77,7 +81,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w500(double fontSize, {
+  TextStyle w500(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -96,7 +101,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w600(double fontSize, {
+  TextStyle w600(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -115,7 +121,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w700(double fontSize, {
+  TextStyle w700(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -134,7 +141,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w800(double fontSize, {
+  TextStyle w800(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -153,7 +161,8 @@ extension TextStyleByColor on Color {
     );
   }
 
-  TextStyle w900(double fontSize, {
+  TextStyle w900(
+    double fontSize, {
     FontStyle? fontStyle,
     TextDecoration? decoration,
     Color? decorationColor,
@@ -164,6 +173,46 @@ extension TextStyleByColor on Color {
       fontSize: fontSize,
       fontStyle: fontStyle,
       fontWeight: FontWeight.w900,
+      color: this,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationStyle: decorationStyle,
+      decorationThickness: decorationThickness,
+    );
+  }
+
+  TextStyle normal(
+    double fontSize, {
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) {
+    return TextStyle(
+      fontSize: fontSize,
+      fontStyle: fontStyle,
+      fontWeight: FontWeight.normal,
+      color: this,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationStyle: decorationStyle,
+      decorationThickness: decorationThickness,
+    );
+  }
+
+  TextStyle bold(
+    double fontSize, {
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) {
+    return TextStyle(
+      fontSize: fontSize,
+      fontStyle: fontStyle,
+      fontWeight: FontWeight.bold,
       color: this,
       decoration: decoration,
       decorationColor: decorationColor,
