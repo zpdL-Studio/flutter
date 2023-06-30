@@ -80,7 +80,7 @@ class DynamicBottomSheetWidget extends StatelessWidget {
                   : content),
         if (action != null)
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.only(top: 8, bottom: 16),
             child: action,
           )
         else

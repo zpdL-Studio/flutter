@@ -8,6 +8,36 @@ import 'dynamic_bottom_sheet.dart';
 typedef DynamicDialogWidgetBuilder = Widget Function(
     BuildContext context, DynamicLayoutData? dynamicLayout);
 
+Widget Function(BuildContext context,
+        List<(dynamic result, String text, ButtonStyle? style)> actions)
+    buildDynamicActions = (BuildContext context,
+        List<(dynamic result, String text, ButtonStyle? style)> actions) {
+  final actionWidget = <Widget>[];
+  for (final (result, text, style) in actions) {
+    if (actionWidget.isNotEmpty) {
+      actionWidget.add(const SizedBox(
+        width: 8,
+      ));
+    }
+    actionWidget.add(Expanded(
+        child: ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.of(context).pop(result);
+            },
+            child: Container(
+              width: double.infinity,
+              height: 48,
+              alignment: AlignmentDirectional.center,
+              child: Text(text),
+            ))));
+  }
+
+  return Row(
+    children: actionWidget,
+  );
+};
+
 Future<dynamic> showDynamicDialog({
   required BuildContext context,
   bool isDismissible = true,
@@ -15,6 +45,7 @@ Future<dynamic> showDynamicDialog({
   DynamicDialogWidgetBuilder? title,
   DynamicDialogWidgetBuilder? content,
   DynamicDialogWidgetBuilder? action,
+  List<(dynamic result, String text, ButtonStyle? style)>? actions,
 }) {
   final dynamicLayout = DynamicLayout.byMediaQuery(context);
 
@@ -26,7 +57,14 @@ Future<dynamic> showDynamicDialog({
         isScrollControlled: isScrollControlled,
         title: title != null ? (_) => title(_, dynamicLayout) : null,
         content: content != null ? (_) => content(_, dynamicLayout) : null,
-        action: action != null ? (_) => action(_, dynamicLayout) : null,
+        action: actions != null
+            ? (_) => Padding(
+                  padding: EdgeInsetsDynamic(horizontal: dynamicLayout.padding),
+                  child: buildDynamicActions(context, actions),
+                )
+            : action != null
+                ? (_) => action(_, dynamicLayout)
+                : null,
       );
     case DynamicDevice.tablet:
     case DynamicDevice.desktop:
@@ -35,27 +73,14 @@ Future<dynamic> showDynamicDialog({
         isDismissible: isDismissible,
         title: title != null ? (_) => title(_, null) : null,
         content: content != null ? (_) => content(_, null) : null,
-        action: action != null ? (_) => action(_, null) : null,
+        action: actions != null
+            ? (_) => buildDynamicActions(context, actions)
+            : action != null
+                ? (_) => action(_, null)
+                : null,
       );
   }
 }
-
-Widget Function(
-        BuildContext context, dynamic result, String text, ButtonStyle? style)
-    buildDynamicAction =
-    (BuildContext context, dynamic result, String text, ButtonStyle? style) {
-  return ElevatedButton(
-      style: style,
-      onPressed: () {
-        Navigator.of(context).pop(result);
-      },
-      child: Container(
-        width: double.infinity,
-        height: 48,
-        alignment: AlignmentDirectional.center,
-        child: Text(text),
-      ));
-};
 
 Future<dynamic> showDynamicSimpleDialog({
   required BuildContext context,
@@ -83,27 +108,7 @@ Future<dynamic> showDynamicSimpleDialog({
           : const SizedBox(
               height: 32,
             ),
-      action: actions != null
-          ? (context, dynamicLayout) {
-              final actionWidget = <Widget>[];
-              for (final (result, text, style) in actions) {
-                if (actionWidget.isNotEmpty) {
-                  actionWidget.add(const SizedBox(
-                    width: 8,
-                  ));
-                }
-                actionWidget.add(Expanded(
-                    child: buildDynamicAction(context, result, text, style)));
-              }
-
-              return Padding(
-                  padding:
-                      EdgeInsetsDynamic(horizontal: dynamicLayout?.padding),
-                  child: Row(
-                    children: actionWidget,
-                  ));
-            }
-          : null);
+      actions: actions);
 }
 
 Future<dynamic> showDynamicSelectDialog<T>({
@@ -132,25 +137,5 @@ Future<dynamic> showDynamicSelectDialog<T>({
           children: children.toList(),
         );
       },
-      action: actions != null
-          ? (context, dynamicLayout) {
-              final actionWidget = <Widget>[];
-              for (final (result, text, style) in actions) {
-                if (actionWidget.isNotEmpty) {
-                  actionWidget.add(const SizedBox(
-                    width: 8,
-                  ));
-                }
-                actionWidget.add(Expanded(
-                    child: buildDynamicAction(context, result, text, style)));
-              }
-
-              return Padding(
-                  padding:
-                      EdgeInsetsDynamic(horizontal: dynamicLayout?.padding),
-                  child: Row(
-                    children: actionWidget,
-                  ));
-            }
-          : null);
+      actions: actions);
 }
