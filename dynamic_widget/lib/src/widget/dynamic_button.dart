@@ -109,6 +109,49 @@ class DynamicAlignBottomButton extends StatelessWidget {
 }
 
 extension DynamicButtonStyleByTheme on ThemeData {
+  Color getForegroundColorColorByDynamicButtonStyle(DynamicButtonStyle style) =>
+      switch (style) {
+        DynamicButtonStyle.text => colorScheme.surface,
+        DynamicButtonStyle.primary => colorScheme.onPrimary,
+        DynamicButtonStyle.primaryContainer => colorScheme.onPrimaryContainer,
+        DynamicButtonStyle.secondary => colorScheme.onSecondary,
+        DynamicButtonStyle.secondaryContainer =>
+          colorScheme.onSecondaryContainer,
+        DynamicButtonStyle.tertiary => colorScheme.onTertiary,
+        DynamicButtonStyle.tertiaryContainer => colorScheme.onTertiaryContainer,
+        DynamicButtonStyle.error => colorScheme.onError,
+        DynamicButtonStyle.errorContainer => colorScheme.onErrorContainer,
+        DynamicButtonStyle.outline => hintColor,
+      };
+
+  Color getBackgroundColorByDynamicButtonStyle(DynamicButtonStyle style) =>
+      switch (style) {
+        DynamicButtonStyle.text => colorScheme.onSurface,
+        DynamicButtonStyle.primary => colorScheme.primary,
+        DynamicButtonStyle.primaryContainer => colorScheme.primaryContainer,
+        DynamicButtonStyle.secondary => colorScheme.secondary,
+        DynamicButtonStyle.secondaryContainer => colorScheme.secondaryContainer,
+        DynamicButtonStyle.tertiary => colorScheme.tertiary,
+        DynamicButtonStyle.tertiaryContainer => colorScheme.tertiaryContainer,
+        DynamicButtonStyle.error => colorScheme.error,
+        DynamicButtonStyle.errorContainer => colorScheme.errorContainer,
+        DynamicButtonStyle.outline => hintColor,
+      };
+
+  Color getBorderColorByDynamicButtonStyle(DynamicButtonStyle style) =>
+      switch (style) {
+        DynamicButtonStyle.text => colorScheme.onSurface,
+        DynamicButtonStyle.primary => colorScheme.primary,
+        DynamicButtonStyle.primaryContainer => colorScheme.primaryContainer,
+        DynamicButtonStyle.secondary => colorScheme.secondary,
+        DynamicButtonStyle.secondaryContainer => colorScheme.secondaryContainer,
+        DynamicButtonStyle.tertiary => colorScheme.tertiary,
+        DynamicButtonStyle.tertiaryContainer => colorScheme.tertiaryContainer,
+        DynamicButtonStyle.error => colorScheme.error,
+        DynamicButtonStyle.errorContainer => colorScheme.errorContainer,
+        DynamicButtonStyle.outline => hintColor,
+      };
+
   ButtonStyle getDynamicOutlinedButtonStyle(DynamicButtonStyle style) =>
       switch (style) {
         DynamicButtonStyle.text => OutlinedButton.styleFrom(
