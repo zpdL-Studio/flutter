@@ -112,3 +112,61 @@ class DynamicLabel extends StatelessWidget {
     );
   }
 }
+
+class DynamicCircleLabel extends StatelessWidget {
+  final BorderSide? side;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+  final EdgeInsetsGeometry? padding;
+  final TextStyle? textStyle;
+  final VoidCallback? onTap;
+  final Widget child;
+
+  const DynamicCircleLabel({
+    super.key,
+    this.side,
+    this.backgroundColor,
+    this.foregroundColor,
+    this.padding,
+    this.textStyle,
+    this.onTap,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final style = (theme.extension<DynamicLabelStyle>() ??
+        DynamicLabelStyle(
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary))
+        .copyWith(
+      side: side,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      padding: padding,
+      textStyle: textStyle,
+    ) as DynamicLabelStyle;
+
+    return Material(
+      clipBehavior: Clip.hardEdge,
+      shape: CircleBorder(
+        side: style.side,
+      ),
+      color: style.backgroundColor,
+      child: InkWell(
+        onTap: onTap,
+        hoverColor: style.foregroundColor.withOpacity(0.04),
+        splashColor: style.foregroundColor.withOpacity(0.12),
+        highlightColor: style.foregroundColor.withOpacity(0.12),
+        child: Padding(
+          padding: style.padding,
+          child: DefaultTextStyle(
+            style: style.textStyle.copyWith(color: style.foregroundColor),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
