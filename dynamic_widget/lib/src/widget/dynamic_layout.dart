@@ -228,7 +228,7 @@ typedef DynamicLayoutWidgetBuilder = Widget Function(
 
 class DynamicLayout extends StatelessWidget {
   static DynamicLayoutData of(BuildContext context) {
-    final widget = context.getInheritedWidgetOfExactType<_DynamicLayout>();
+    final widget = context.dependOnInheritedWidgetOfExactType<_DynamicLayout>();
     if (widget != null) {
       return widget.data;
     }
