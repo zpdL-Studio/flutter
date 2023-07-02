@@ -1,10 +1,10 @@
 extension ListExtension<E> on List<E> {
   List<E> dynamicSublist(int start, [int? end]) {
-    if(end == null) {
+    if (end == null) {
       return sublist(start);
     }
 
-    if(end > length) {
+    if (end > length) {
       return sublist(start, length);
     }
 
@@ -12,8 +12,7 @@ extension ListExtension<E> on List<E> {
   }
 
   List<E> dynamicRemoveWhere(bool Function(E element) test) {
-    return toList()
-      ..removeWhere(test);
+    return toList()..removeWhere(test);
   }
 
   E? dynamicGet(int? index) {
@@ -25,5 +24,17 @@ extension ListExtension<E> on List<E> {
       return this[index];
     }
     return null;
+  }
+
+  List<E> dynamicAddSeparator(E separator) {
+    List<E> results = <E>[];
+
+    for (int i = 0; i < length; i++) {
+      if (i > 0 && i < length) {
+        results.add(separator);
+      }
+      results.add(this[i]);
+    }
+    return results;
   }
 }
