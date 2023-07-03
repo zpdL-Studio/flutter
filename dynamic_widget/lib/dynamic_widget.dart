@@ -29,3 +29,4 @@ export 'package:dynamic_widget/src/widget/dynamic_label.dart';
 export 'package:dynamic_widget/src/widget/edge_insets.dart';
 export 'package:dynamic_widget/src/widget/out_side_unfocus.dart';
 export 'package:dynamic_widget/src/widget/overflow_widget.dart';
+export 'package:dynamic_widget/src/widget/read_only_text_field.dart';
