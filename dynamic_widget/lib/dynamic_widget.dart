@@ -10,6 +10,8 @@ export 'package:dynamic_widget/src/extension/list.dart';
 export 'package:dynamic_widget/src/extension/string.dart';
 export 'package:dynamic_widget/src/extension/map.dart';
 
+export 'package:dynamic_widget/src/formatter/phone_number_formatter.dart';
+
 export 'package:dynamic_widget/src/style/dynamic_system_ui_overlay_style.dart';
 export 'package:dynamic_widget/src/style/text_style.dart';
 
