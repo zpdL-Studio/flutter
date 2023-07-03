@@ -15,9 +15,15 @@ class DynamicDay {
   factory DynamicDay.timeMs(int timeMs) =>
       DynamicDay.dataTime(DateTime.fromMillisecondsSinceEpoch(timeMs));
 
+  /// 20230703
+  factory DynamicDay.fromInt(int value) => DynamicDay(
+      year: (value % 100000000) ~/ 10000, month: (value % 10000) ~/ 100, day: value % 100);
+
   DateTime get dateTime => DateTime(year, month, day);
 
   int get weekday => dateTime.weekday;
+
+  int toInt() => year * 10000 + month * 100 + day;
 
   @override
   bool operator ==(Object other) =>
