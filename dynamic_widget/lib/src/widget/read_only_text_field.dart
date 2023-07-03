@@ -18,7 +18,12 @@ class ReadOnlyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     final text = this.text;
+    final textStyle = this.textStyle ??
+        theme.textTheme.bodyLarge ??
+        const TextStyle();
     final child = this.child ??
         (text != null
             ? Text(
@@ -26,13 +31,17 @@ class ReadOnlyTextField extends StatelessWidget {
                 style: textStyle,
               )
             : null);
+    final inputDecoration = (decoration ?? const InputDecoration())
+        .applyDefaults(theme.inputDecorationTheme);
 
     return InkWell(
       onTap: onPressed,
       child: InputDecorator(
-        decoration: decoration ?? const InputDecoration(),
+        decoration: inputDecoration,
         isEmpty: child == null,
-        child: child,
+        child: child != null
+            ? DefaultTextStyle(style: textStyle, child: child)
+            : null,
       ),
     );
   }
