@@ -46,7 +46,7 @@ class DynamicInkWell extends StatelessWidget {
     return Material(
       color: backgroundColor ?? Colors.transparent,
       shape: shape,
-      clipBehavior: shape != null ? Clip.antiAlias : Clip.none,
+      clipBehavior: shape != null ? Clip.hardEdge : Clip.none,
       elevation: elevation ?? 0,
       child: inkWellIsTop ? Stack(
         children: [
