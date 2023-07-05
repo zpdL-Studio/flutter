@@ -85,6 +85,7 @@ Future<dynamic> showDynamicDialog({
 Future<dynamic> showDynamicSimpleDialog({
   required BuildContext context,
   bool isDismissible = true,
+  bool isScrollControlled = false,
   String? title,
   String? content,
   double contentPadding = 16,
@@ -93,6 +94,7 @@ Future<dynamic> showDynamicSimpleDialog({
   return showDynamicDialog(
       context: context,
       isDismissible: isDismissible,
+      isScrollControlled: isScrollControlled,
       title: showDynamicSimpleTitle(title),
       content: showDynamicSimpleContent(content, contentPadding) ??
           (context, dynamicLayout) => SizedBox(
@@ -129,6 +131,7 @@ DynamicDialogWidgetBuilder? showDynamicSimpleContent(String? content,
 Future<dynamic> showDynamicSelectDialog<T>({
   required BuildContext context,
   bool isDismissible = true,
+  bool isScrollControlled = false,
   WidgetBuilder? title,
   required Iterable<T> items,
   required Widget Function(
@@ -139,6 +142,7 @@ Future<dynamic> showDynamicSelectDialog<T>({
   return showDynamicDialog(
       context: context,
       isDismissible: isDismissible,
+      isScrollControlled: isScrollControlled,
       title: title != null
           ? (context, dynamicLayout) => Padding(
               padding: EdgeInsetsDynamic(horizontal: dynamicLayout?.padding),
