@@ -87,28 +87,43 @@ Future<dynamic> showDynamicSimpleDialog({
   bool isDismissible = true,
   String? title,
   String? content,
+  double contentPadding = 16,
   List<(dynamic, String, ButtonStyle?)>? actions,
 }) {
   return showDynamicDialog(
       context: context,
       isDismissible: isDismissible,
-      title: title != null
-          ? (context, dynamicLayout) => Container(
-                alignment: AlignmentDirectional.centerStart,
-                padding: EdgeInsetsDynamic(horizontal: dynamicLayout?.padding),
-                child: Text(title),
-              )
-          : null,
-      content: (context, dynamicLayout) => content != null
-          ? Container(
-              padding: EdgeInsetsDynamic(
-                  vertical: 16, horizontal: dynamicLayout?.padding),
-              child: Text(content),
-            )
-          : const SizedBox(
-              height: 32,
-            ),
+      title: showDynamicSimpleTitle(title),
+      content: showDynamicSimpleContent(content, contentPadding) ??
+          (context, dynamicLayout) => SizedBox(
+                height: contentPadding * 2,
+              ),
       actions: actions);
+}
+
+DynamicDialogWidgetBuilder? showDynamicSimpleTitle(String? title) {
+  if (title == null) {
+    return null;
+  }
+
+  return (context, dynamicLayout) => Container(
+        alignment: AlignmentDirectional.centerStart,
+        padding: EdgeInsetsDynamic(horizontal: dynamicLayout?.padding),
+        child: Text(title),
+      );
+}
+
+DynamicDialogWidgetBuilder? showDynamicSimpleContent(String? content,
+    [double contentPadding = 16]) {
+  if (content == null) {
+    return null;
+  }
+
+  return (context, dynamicLayout) => Container(
+        padding: EdgeInsetsDynamic(
+            vertical: contentPadding, horizontal: dynamicLayout?.padding),
+        child: Text(content),
+      );
 }
 
 Future<dynamic> showDynamicSelectDialog<T>({
