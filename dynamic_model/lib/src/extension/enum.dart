@@ -9,4 +9,18 @@ extension EnumByName<T extends Enum> on Iterable<T> {
 
     return null;
   }
+
+  List<T> setToList(Set<T>? set) {
+    if(set == null) {
+      return [];
+    }
+
+    final results = <T>[];
+    for(final e in this) {
+      if(set.contains(e)) {
+        results.add(e);
+      }
+    }
+    return results;
+  }
 }
