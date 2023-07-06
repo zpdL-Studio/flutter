@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-base class UpdateValue<T> {
+base class DynamicUpdate<T> {
   T _value;
 
   T get value => _value;
@@ -14,5 +14,5 @@ base class UpdateValue<T> {
 
   final VoidCallback onUpdate;
 
-  UpdateValue(T value, this.onUpdate) : _value = value;
+  DynamicUpdate(T value, this.onUpdate) : _value = value;
 }
