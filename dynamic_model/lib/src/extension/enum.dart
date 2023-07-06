@@ -10,7 +10,7 @@ extension EnumByName<T extends Enum> on Iterable<T> {
     return null;
   }
 
-  List<T> setToList(Set<T>? set) {
+  List<T> trySetToList(Set<T>? set) {
     if(set == null) {
       return [];
     }
