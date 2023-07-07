@@ -105,21 +105,18 @@ class DynamicInkWell extends StatelessWidget {
   }
 
   Widget _buildInkWell(DynamicInkWellStyle style, Widget? child) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        onDoubleTap: onDoubleTap,
-        onLongPress: onLongPress,
-        onTapDown: onTapDown,
-        onTapCancel: onTapCancel,
-        onHighlightChanged: onHighlightChanged,
-        onHover: onHover,
-        hoverColor: style.foregroundColor.withOpacity(0.04),
-        splashColor: style.foregroundColor.withOpacity(0.12),
-        highlightColor: style.foregroundColor.withOpacity(0.12),
-        child: child,
-      ),
+    return InkWell(
+      onTap: onTap,
+      onDoubleTap: onDoubleTap,
+      onLongPress: onLongPress,
+      onTapDown: onTapDown,
+      onTapCancel: onTapCancel,
+      onHighlightChanged: onHighlightChanged,
+      onHover: onHover,
+      hoverColor: style.foregroundColor.withOpacity(0.04),
+      splashColor: style.foregroundColor.withOpacity(0.12),
+      highlightColor: style.foregroundColor.withOpacity(0.12),
+      child: child,
     );
   }
 }
