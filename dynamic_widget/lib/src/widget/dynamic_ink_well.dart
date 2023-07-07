@@ -94,6 +94,8 @@ class DynamicInkWell extends StatelessWidget {
       elevation: elevation,
     ) as DynamicInkWellStyle;
 
+    final child = Padding(padding: style.padding, child: this.child,);
+
     return Material(
       color: style.backgroundColor,
       shape: style.shape,
