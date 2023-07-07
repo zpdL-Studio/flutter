@@ -2,6 +2,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
+/// NumberFormat('###,###,###,###', 'ko_KR')
+
 class TextInputNumberFormatter extends TextInputFormatter {
   final NumberFormat numberFormat;
 
