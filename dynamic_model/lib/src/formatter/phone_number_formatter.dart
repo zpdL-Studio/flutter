@@ -1,6 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
+import 'number_formatter.dart';
+
 class TextInputPhoneNumberFormatter extends TextInputFormatter {
   static const length = 16;
   final TextInputFormatter digitsOnly = FilteringTextInputFormatter.digitsOnly;
@@ -67,7 +69,6 @@ class TextInputPhoneNumberFormatter extends TextInputFormatter {
   }
 
   static String textToDigit(String text) {
-    final cardNumber = text.split('-');
-    return cardNumber.reduce((value, element) => '$value$element');
+    return TextInputNumberFormatter.textToDigit(text);
   }
 }

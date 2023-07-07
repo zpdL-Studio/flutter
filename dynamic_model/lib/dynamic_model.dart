@@ -6,6 +6,7 @@ export 'package:dynamic_model/src/extension/list.dart';
 export 'package:dynamic_model/src/extension/map.dart';
 export 'package:dynamic_model/src/extension/string.dart';
 
+export 'package:dynamic_model/src/formatter/number_formatter.dart';
 export 'package:dynamic_model/src/formatter/phone_number_formatter.dart';
 
 export 'package:dynamic_model/src/dynamic_day.dart';
