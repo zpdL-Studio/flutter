@@ -2,21 +2,17 @@ import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutter/material.dart';
 
 class DynamicInkWellStyle extends ThemeExtension<DynamicInkWellStyle> {
-  static const EdgeInsetsGeometry defaultPadding =
-      EdgeInsets.symmetric(vertical: 4, horizontal: 8);
 
   const DynamicInkWellStyle({
     this.shape = const RoundedRectangleBorder(side: BorderSide.none),
     this.backgroundColor = Colors.transparent,
     this.foregroundColor = Colors.black,
-    this.padding = defaultPadding,
     this.elevation = 0,
   });
 
   final ShapeBorder? shape;
   final Color backgroundColor;
   final Color foregroundColor;
-  final EdgeInsetsGeometry padding;
   final double elevation;
 
   @override
@@ -31,7 +27,6 @@ class DynamicInkWellStyle extends ThemeExtension<DynamicInkWellStyle> {
         shape: shape ?? this.shape,
         backgroundColor: backgroundColor ?? this.backgroundColor,
         foregroundColor: foregroundColor ?? this.foregroundColor,
-        padding: padding ?? this.padding,
         elevation: elevation ?? this.elevation,
       );
 
@@ -53,7 +48,6 @@ class DynamicInkWell extends StatelessWidget {
 
   final Color? backgroundColor;
   final Color? foregroundColor;
-  final EdgeInsetsGeometry? padding;
   final ShapeBorder? shape;
   final double? elevation;
   final bool inkWellIsTop;
@@ -71,7 +65,6 @@ class DynamicInkWell extends StatelessWidget {
     this.onHover,
     this.backgroundColor,
     this.foregroundColor,
-    this.padding,
     this.shape,
     this.elevation,
     this.inkWellIsTop = true,
@@ -90,11 +83,8 @@ class DynamicInkWell extends StatelessWidget {
       shape: shape,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
-      padding: padding,
       elevation: elevation,
     ) as DynamicInkWellStyle;
-
-    final child = Padding(padding: style.padding, child: this.child,);
 
     return Material(
       color: style.backgroundColor,
