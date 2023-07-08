@@ -10,5 +10,6 @@ export 'package:dynamic_model/src/formatter/number_formatter.dart';
 export 'package:dynamic_model/src/formatter/phone_number_formatter.dart';
 
 export 'package:dynamic_model/src/dynamic_day.dart';
+export 'package:dynamic_model/src/dynamic_exception.dart';
 export 'package:dynamic_model/src/dynamic_nullable.dart';
 export 'package:dynamic_model/src/dynamic_update.dart';
