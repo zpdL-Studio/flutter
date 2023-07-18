@@ -142,19 +142,26 @@ class DynamicNetworkImage extends StatelessWidget {
     // return style.errorWidgetBuilder(context, '', null);
     final imageUrl = this.imageUrl;
     if (imageUrl == null || imageUrl.isEmpty) {
-      return style.emptyWidgetBuilder(context);
+      return SizedBox(
+          width: width,
+          height: height,
+          child: style.emptyWidgetBuilder(context));
     }
 
-    return CachedNetworkImage(
-        imageUrl: imageUrl,
-        width: width,
-        height: height,
-        fit: style.fit,
-        fadeInDuration: style.fadeInDuration,
-        fadeOutDuration: style.fadeOutDuration,
-        progressIndicatorBuilder:
-            style.visibleProgress ? style.progressIndicatorBuilder : null,
-        errorWidget: style.errorWidgetBuilder);
+    return SizedBox(
+      width: width,
+      height: height,
+      child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          width: width,
+          height: height,
+          fit: style.fit,
+          fadeInDuration: style.fadeInDuration,
+          fadeOutDuration: style.fadeOutDuration,
+          progressIndicatorBuilder:
+              style.visibleProgress ? style.progressIndicatorBuilder : null,
+          errorWidget: style.errorWidgetBuilder),
+    );
   }
 }
 
