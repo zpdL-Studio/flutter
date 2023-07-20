@@ -58,6 +58,11 @@ class DynamicDay {
 
   @override
   int get hashCode => year.hashCode ^ month.hashCode ^ day.hashCode;
+
+  @override
+  String toString() {
+    return 'DynamicDay{$year-$month-$day}';
+  }
 }
 
 class DynamicDays<T> {
