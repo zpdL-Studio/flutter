@@ -54,3 +54,13 @@ extension EnumByName<T extends Enum> on Iterable<T> {
     return results;
   }
 }
+
+List<String> enumToNames(List<Enum?> list) {
+  final results = <String>[];
+  for (final item in list) {
+    if (item != null) {
+      results.add(item.name);
+    }
+  }
+  return results;
+}
