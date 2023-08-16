@@ -23,12 +23,12 @@ extension EnumByName<T extends Enum> on Iterable<T> {
     return results;
   }
 
-  T? tryByNames(Iterable<String>? names) {
+  T? tryByNames(Iterable? names) {
     if (names == null) {
       return null;
     }
 
-    final set = names is Set<String> ? names : names.toSet();
+    final set = names is Set ? names : names.toSet();
     for (final e in this) {
       if (set.contains(e.name)) {
         return e;
@@ -38,12 +38,12 @@ extension EnumByName<T extends Enum> on Iterable<T> {
     return null;
   }
 
-  List<T> tryByNamesToList(Iterable<String>? names) {
+  List<T> tryByNamesToList(Iterable? names) {
     if (names == null) {
       return [];
     }
 
-    final set = names is Set<String> ? names : names.toSet();
+    final set = names is Set ? names : names.toSet();
     final results = <T>[];
     for (final e in this) {
       if (set.contains(e.name)) {
