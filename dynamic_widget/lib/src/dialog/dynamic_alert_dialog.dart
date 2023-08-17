@@ -12,10 +12,11 @@ Future<dynamic> showDynamicAlertDialog({
       barrierDismissible: isDismissible,
       builder: (context) {
         final actionWidget = action?.call(context);
+        final contentWidget = content?.call(context);
 
         return AlertDialog(
           title: title?.call(context),
-          content: content?.call(context),
+          content: contentWidget != null ? SingleChildScrollView(child: contentWidget,) : null,
           actions: actionWidget != null ? [actionWidget] : null,
         );
       });
