@@ -59,23 +59,27 @@ class DynamicMapList<K, V> {
     return _map!;
   }
 
-  void add(V item) {
+  void updatedList() {
     _map = null;
+  }
+
+  void add(V item) {
+    updatedList();
     list.add(item);
   }
 
   void addAll(Iterable<V> iterable) {
-    _map = null;
+    updatedList();
     list.addAll(iterable);
   }
 
   bool remove(Object? value) {
-    _map = null;
+    updatedList();
     return list.remove(value);
   }
 
   V removeAt(int index) {
-    _map = null;
+    updatedList();
     return list.removeAt(index);
   }
 
