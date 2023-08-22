@@ -63,6 +63,14 @@ class DynamicMapList<K, V> {
     _map = null;
   }
 
+  V getByIndex(int index) {
+    return list[index];
+  }
+
+  V? getByKey(K k) {
+    return map[k];
+  }
+
   void add(V item) {
     updatedList();
     list.add(item);
