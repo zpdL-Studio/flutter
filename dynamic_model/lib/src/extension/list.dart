@@ -59,6 +59,8 @@ class DynamicMapList<K, V> {
     return _map!;
   }
 
+  int get length => list.length;
+
   void updatedList() {
     _map = null;
   }
