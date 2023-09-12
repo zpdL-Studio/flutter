@@ -64,3 +64,27 @@ List<String> enumToNames(List<Enum?> list) {
   }
   return results;
 }
+
+extension EnumByMapBoolean<T extends Enum> on Iterable<T> {
+  List<T> tryByMapBoolean(dynamic json) {
+    final list = <T>[];
+    if (json is Map) {
+      for (final value in this) {
+        final e = json[value];
+        if (e == true) {
+          list.add(e);
+        }
+      }
+    }
+
+    return list;
+  }
+
+  Map<String, dynamic> toMapBoolean() {
+    final json = <String, dynamic>{};
+    for (final value in this) {
+      json[value.name] = true;
+    }
+    return json;
+  }
+}
