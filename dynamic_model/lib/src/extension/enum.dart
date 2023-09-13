@@ -72,7 +72,7 @@ extension EnumByMapBoolean<T extends Enum> on Iterable<T> {
       for (final value in this) {
         final e = json[value.name];
         if (e == true) {
-          list.add(e);
+          list.add(value);
         }
       }
     }
