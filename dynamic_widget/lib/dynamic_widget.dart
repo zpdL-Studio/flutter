@@ -1,5 +1,6 @@
 library dynamic_widget;
 
+export 'package:dynamic_widget/src/style/dynamic_input_decoration.dart';
 export 'package:dynamic_widget/src/style/dynamic_system_ui_overlay_style.dart';
 export 'package:dynamic_widget/src/style/text_style.dart';
 
