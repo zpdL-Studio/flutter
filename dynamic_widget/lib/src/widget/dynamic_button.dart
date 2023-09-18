@@ -4,6 +4,8 @@ enum DynamicButtonType { elevated, outlined }
 
 enum DynamicButtonStyle {
   text,
+  outlineText,
+  hintText,
   primary,
   primaryContainer,
   secondary,
@@ -112,6 +114,8 @@ extension DynamicButtonStyleByTheme on ThemeData {
   Color getForegroundColorColorByDynamicButtonStyle(DynamicButtonStyle style) =>
       switch (style) {
         DynamicButtonStyle.text => colorScheme.surface,
+        DynamicButtonStyle.outlineText => colorScheme.onSurface,
+        DynamicButtonStyle.hintText => colorScheme.onSurface,
         DynamicButtonStyle.primary => colorScheme.onPrimary,
         DynamicButtonStyle.primaryContainer => colorScheme.onPrimaryContainer,
         DynamicButtonStyle.secondary => colorScheme.onSecondary,
@@ -127,6 +131,8 @@ extension DynamicButtonStyleByTheme on ThemeData {
   Color getBackgroundColorByDynamicButtonStyle(DynamicButtonStyle style) =>
       switch (style) {
         DynamicButtonStyle.text => colorScheme.onSurface,
+        DynamicButtonStyle.outlineText => colorScheme.outline,
+        DynamicButtonStyle.hintText => hintColor,
         DynamicButtonStyle.primary => colorScheme.primary,
         DynamicButtonStyle.primaryContainer => colorScheme.primaryContainer,
         DynamicButtonStyle.secondary => colorScheme.secondary,
@@ -141,6 +147,8 @@ extension DynamicButtonStyleByTheme on ThemeData {
   Color getBorderColorByDynamicButtonStyle(DynamicButtonStyle style) =>
       switch (style) {
         DynamicButtonStyle.text => colorScheme.onSurface,
+        DynamicButtonStyle.outlineText => colorScheme.outline,
+        DynamicButtonStyle.hintText => hintColor,
         DynamicButtonStyle.primary => colorScheme.primary,
         DynamicButtonStyle.primaryContainer => colorScheme.primaryContainer,
         DynamicButtonStyle.secondary => colorScheme.secondary,
@@ -157,6 +165,12 @@ extension DynamicButtonStyleByTheme on ThemeData {
         DynamicButtonStyle.text => OutlinedButton.styleFrom(
             foregroundColor: colorScheme.onSurface,
             side: BorderSide(color: colorScheme.onSurface)),
+        DynamicButtonStyle.outlineText => OutlinedButton.styleFrom(
+            foregroundColor: colorScheme.outline,
+            side: BorderSide(color: colorScheme.outline)),
+        DynamicButtonStyle.hintText => OutlinedButton.styleFrom(
+            foregroundColor: hintColor,
+            side: BorderSide(color: hintColor)),
         DynamicButtonStyle.primary => OutlinedButton.styleFrom(
             foregroundColor: colorScheme.primary,
             side: BorderSide(color: colorScheme.primary)),
@@ -191,6 +205,12 @@ extension DynamicButtonStyleByTheme on ThemeData {
         DynamicButtonStyle.text => ElevatedButton.styleFrom(
             foregroundColor: colorScheme.surface,
             backgroundColor: colorScheme.onSurface),
+        DynamicButtonStyle.outlineText => ElevatedButton.styleFrom(
+            foregroundColor: colorScheme.onSurface,
+            backgroundColor: colorScheme.outline),
+        DynamicButtonStyle.hintText => ElevatedButton.styleFrom(
+            foregroundColor: colorScheme.onSurface,
+            backgroundColor: hintColor),
         DynamicButtonStyle.primary => ElevatedButton.styleFrom(
             foregroundColor: colorScheme.onPrimary,
             backgroundColor: colorScheme.primary),
