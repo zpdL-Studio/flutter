@@ -12,7 +12,9 @@ export 'package:dynamic_widget/src/dialog/dynamic_dialog.dart';
 export 'package:dynamic_widget/src/dialog/dynamic_toast.dart';
 
 export 'package:dynamic_widget/src/widget/dynamic_aspect_dp_widget.dart';
+export 'package:dynamic_widget/src/widget/dynamic_async_worker.dart';
 export 'package:dynamic_widget/src/widget/dynamic_button.dart';
+export 'package:dynamic_widget/src/widget/dynamic_grid_widget.dart';
 export 'package:dynamic_widget/src/widget/dynamic_ink_well.dart';
 export 'package:dynamic_widget/src/widget/dynamic_label.dart';
 export 'package:dynamic_widget/src/widget/dynamic_layout.dart';
