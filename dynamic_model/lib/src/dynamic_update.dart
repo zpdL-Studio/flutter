@@ -12,6 +12,13 @@ base class DynamicUpdate<T> {
     }
   }
 
+  void setValue(T v, [bool forceUpdate = false]) {
+    if (forceUpdate || _value != v) {
+      _value = v;
+      onUpdate();
+    }
+  }
+
   final VoidCallback onUpdate;
 
   DynamicUpdate(T value, this.onUpdate) : _value = value;
@@ -28,6 +35,14 @@ base class DynamicUpdateInitialize<T> {
 
   set value(T v) {
     if (!_initialized || _value != v) {
+      _initialized = true;
+      _value = v;
+      onUpdate();
+    }
+  }
+
+  void setValue(T v, [bool forceUpdate = false]) {
+    if (forceUpdate || !_initialized || _value != v) {
       _initialized = true;
       _value = v;
       onUpdate();
