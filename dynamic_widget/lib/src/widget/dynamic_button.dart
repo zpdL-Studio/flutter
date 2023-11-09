@@ -47,6 +47,55 @@ class DynamicButton extends StatelessWidget {
   }
 }
 
+class DynamicAlignBottom extends StatelessWidget {
+  final bool visible;
+  final Color? backgroundColor;
+  final double? gradientHeight;
+  final EdgeInsetsGeometry? padding;
+  final Widget child;
+
+  const DynamicAlignBottom(
+      {super.key,
+      this.visible = true,
+      this.backgroundColor,
+      this.gradientHeight,
+      this.padding,
+      required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final color = backgroundColor ?? theme.scaffoldBackgroundColor;
+    final gradientHeight = this.gradientHeight;
+    return Align(
+        alignment: AlignmentDirectional.bottomCenter,
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: visible
+              ? Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (gradientHeight != null)
+                      Container(
+                        width: double.infinity,
+                        height: gradientHeight,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [color.withOpacity(0.0), color],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                      ),
+                    Container(padding: padding, color: color, child: child),
+                  ],
+                )
+              : Container(),
+        ));
+  }
+}
+
 class DynamicAlignBottomButton extends StatelessWidget {
   final DynamicButtonType type;
   final DynamicButtonStyle style;
