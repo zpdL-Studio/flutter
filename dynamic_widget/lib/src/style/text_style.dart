@@ -272,6 +272,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
     );
   }
 
+  TextStyle wThin(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w100(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
+
   TextStyle w200(
     double fontSize, {
     Color? color,
@@ -292,6 +311,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
       decorationThickness: decorationThickness,
     );
   }
+
+  TextStyle wExtraLight(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w200(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
 
   TextStyle w300(
     double fontSize, {
@@ -314,6 +352,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
     );
   }
 
+  TextStyle wLight(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w300(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
+
   TextStyle w400(
     double fontSize, {
     Color? color,
@@ -334,6 +391,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
       decorationThickness: decorationThickness,
     );
   }
+
+  TextStyle wRegular(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w400(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
 
   TextStyle w500(
     double fontSize, {
@@ -356,6 +432,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
     );
   }
 
+  TextStyle wMedium(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w500(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
+
   TextStyle w600(
     double fontSize, {
     Color? color,
@@ -376,6 +471,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
       decorationThickness: decorationThickness,
     );
   }
+
+  TextStyle wSemiBold(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w600(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
 
   TextStyle w700(
     double fontSize, {
@@ -398,6 +512,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
     );
   }
 
+  TextStyle wBold(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w700(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
+
   TextStyle w800(
     double fontSize, {
     Color? color,
@@ -419,6 +552,25 @@ extension DynamicTextTextStyleByTheme on ThemeData {
     );
   }
 
+  TextStyle wExtraBold(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w800(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
+
   TextStyle w900(
     double fontSize, {
     Color? color,
@@ -439,4 +591,23 @@ extension DynamicTextTextStyleByTheme on ThemeData {
       decorationThickness: decorationThickness,
     );
   }
+
+  TextStyle wBlack(
+    double fontSize, {
+    Color? color,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+  }) =>
+      w900(
+        fontSize,
+        color: color,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+      );
 }
