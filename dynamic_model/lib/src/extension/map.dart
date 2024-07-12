@@ -9,15 +9,15 @@ extension DynamicMapExtension on Map {
     }
 
     switch (T) {
-      case int:
+      case const (int):
         return (dynamicToInt(this[key]) as T?);
-      case double:
+      case const (double):
         return (dynamicToDouble(this[key]) as T?);
-      case String:
+      case const (String):
         return (dynamicToString(this[key]) as T?);
-      case bool:
+      case const (bool):
         return (dynamicToBool(this[key]) as T?);
-      case Map:
+      case const (Map):
         return this[key] is Map ? this[key] : null;
       default:
         final value = this[key];
@@ -28,22 +28,22 @@ extension DynamicMapExtension on Map {
     }
   }
 
-  T notNull<T>(dynamic key, {T? Function(Map map)? converter}) {
+  T notNull<T>(dynamic key, {T? Function(Map map)? converter, Object? exception}) {
     dynamic value;
     switch (T) {
-      case int:
+      case const (int):
         value = dynamicToInt(this[key]);
         break;
-      case double:
+      case const (double):
         value = dynamicToDouble(this[key]);
         break;
-      case String:
+      case const (String):
         value = dynamicToString(this[key]);
         break;
-      case bool:
+      case const (bool):
         value = dynamicToBool(this[key]);
         break;
-      case Map:
+      case const (Map):
         value = this[key] is Map ? this[key] : null;
         break;
       default:
@@ -59,7 +59,7 @@ extension DynamicMapExtension on Map {
     if (value is T) {
       return value;
     }
-    throw DynamicMapException(
+    throw exception ?? DynamicMapException(
         'key : $key, value ${this[key]}, T : $T, Type : ${this[key]?.runtimeType}');
   }
 
@@ -72,19 +72,19 @@ extension DynamicMapExtension on Map {
         T? value;
         try {
           switch (T) {
-            case int:
+            case const (int):
               value = dynamicToInt(obj) as T?;
               break;
-            case double:
+            case const (double):
               value = dynamicToDouble(obj) as T?;
               break;
-            case String:
+            case const (String):
               value = dynamicToString(obj) as T?;
               break;
-            case bool:
+            case const (bool):
               value = dynamicToBool(obj) as T?;
               break;
-            case Map:
+            case const (Map):
               value = obj is Map ? obj as T : null;
               break;
             default:
