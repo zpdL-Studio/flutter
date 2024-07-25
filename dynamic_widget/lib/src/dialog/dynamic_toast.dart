@@ -197,7 +197,7 @@ class DynamicToast {
           } else if (messageText != null) {
             message = Text(
               messageText,
-              style: messageTextStyle,
+              style: messageStyle,
             );
           }
 
