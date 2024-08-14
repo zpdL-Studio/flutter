@@ -12,7 +12,7 @@ Future<dynamic> showDynamicBottomSheet({
       context: context,
       isDismissible: isDismissible,
       isScrollControlled: isScrollControlled,
-      enableDrag: true,
+      enableDrag: isDismissible,
       useSafeArea: true,
       builder: (context) {
         return SafeArea(
