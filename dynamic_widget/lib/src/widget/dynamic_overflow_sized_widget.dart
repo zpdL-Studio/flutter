@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class OverflowSizedWidget extends StatelessWidget {
+class DynamicOverflowSizedWidget extends StatelessWidget {
   final double width;
   final double height;
   final Widget child;
 
-  const OverflowSizedWidget({
+  const DynamicOverflowSizedWidget({
     super.key,
     required this.width,
     required this.height,
@@ -39,7 +39,7 @@ class _OverflowSizedWidgetDelegate extends MultiChildLayoutDelegate {
 
     if (hasChild(_id)) {
       final BoxConstraints constraints =
-          BoxConstraints.loose(Size(width, height));
+      BoxConstraints.loose(Size(width, height));
       layoutChild(_id, constraints);
       positionChild(_id, const Offset(0, 0));
     }

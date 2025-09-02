@@ -22,5 +22,5 @@ export 'package:dynamic_widget/src/widget/dynamic_layout.dart';
 export 'package:dynamic_widget/src/widget/dynamic_network_image.dart';
 export 'package:dynamic_widget/src/widget/edge_insets.dart';
 export 'package:dynamic_widget/src/widget/out_side_unfocus.dart';
-export 'package:dynamic_widget/src/widget/overflow_widget.dart';
+export 'package:dynamic_widget/src/widget/dynamic_overflow_sized_widget.dart';
 export 'package:dynamic_widget/src/widget/read_only_text_field.dart';
